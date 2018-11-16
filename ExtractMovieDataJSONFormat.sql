@@ -1,6 +1,13 @@
 use TutorialDB
 go
 
+
+/******************************************************************************
+<historylog>
+    <log revision="1.0" date="11/15/2018" bug="" email="adipesa@wellesley.edu"></log>
+</historylog>
+******************************************************************************/
+
 -- Typically Formatted Output from SQL Query
 select top 10 *
 from dbo.Movies
