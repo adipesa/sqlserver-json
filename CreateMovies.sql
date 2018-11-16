@@ -4,7 +4,7 @@ go
 
 /******************************************************************************
 <historylog>
-    <log revision="1.0" date="10/05/2018" bug="" email="Tony DiPesa">Developed by Wellesley College.</log>
+    <log revision="1.0" date="10/05/2018" bug="" email="adipesa@wellesley.edu"></log>
 </historylog>
 ******************************************************************************/
 
