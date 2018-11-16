@@ -62,6 +62,21 @@ and ReleaseYear = 1980
 order by Title
 for json path;
 
+-- Use FOR JSON PATH, WITHOUT_ARRAY_WRAPPER to eliminate open square backet and close square bracket
+select top 10
+		MovieId as Id,
+		Title as Film,
+		ReleaseYear as 'Details.YearOfRelease',
+		Director 'Details.Director',
+		CastListing 'Details.CastListing',
+		Genre as 'Details.Genre',
+		Notes as 'Details.AdditionalInfo'
+from dbo.Movies
+where genre like '%Horror%'
+and ReleaseYear = 1980
+order by Title
+for json path, without_array_wrapper;
+
 -- Use FOR JSON PATH, ROOT to include root node
 select top 10
 		MovieId as Id,
