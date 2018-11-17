@@ -5,6 +5,7 @@ go
 /******************************************************************************
 <historylog>
     <log revision="1.0" date="11/15/2018" bug="" email="adipesa@wellesley.edu"></log>
+    <log revision="1.1" date="11/17/2018" bug="" email="adipesa@wellesley.edu">Select only one row for without_array_wrapper_example.</log>
 </historylog>
 ******************************************************************************/
 
@@ -62,9 +63,8 @@ and ReleaseYear = 1980
 order by Title
 for json path;
 
--- Use FOR JSON PATH, WITHOUT_ARRAY_WRAPPER to eliminate open square backet and close square bracket
-select top 10
-		MovieId as Id,
+-- Use FOR JSON PATH, return array of one JSON object
+select 	        MovieId as Id,
 		Title as Film,
 		ReleaseYear as 'Details.YearOfRelease',
 		Director 'Details.Director',
@@ -74,6 +74,22 @@ select top 10
 from dbo.Movies
 where genre like '%Horror%'
 and ReleaseYear = 1980
+and Title = 'Motel Hell'
+order by Title
+for json path;
+
+-- Use FOR JSON PATH, WITHOUT_ARRAY_WRAPPER to return JSON object only (rather than array of one object)
+select 	        MovieId as Id,
+		Title as Film,
+		ReleaseYear as 'Details.YearOfRelease',
+		Director 'Details.Director',
+		CastListing 'Details.CastListing',
+		Genre as 'Details.Genre',
+		Notes as 'Details.AdditionalInfo'
+from dbo.Movies
+where genre like '%Horror%'
+and ReleaseYear = 1980
+and Title = 'Motel Hell'
 order by Title
 for json path, without_array_wrapper;
 
