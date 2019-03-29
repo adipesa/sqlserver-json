@@ -5,6 +5,7 @@ go
 <historylog>
     <log revision="1.0" date="10/05/2018" bug="" email="adipesa@wellesley.edu"></log>
     <log revision="1.1" date="11/16/2018" bug="" email="adipesa@wellesley.edu">Added drop if exists and count.</log>
+    <log revision="1.2" date="03/28/2019" bug="" email="adipesa@wellesley.edu">Removed MoviesJSONNoArrayWrapper column.</log>
 </historylog>
 ******************************************************************************/
 
@@ -22,7 +23,6 @@ go
 create table dbo.MoviesJSON
 (MoviesJSONId 			int identity(1,1) not null primary key,
  MoviesJSON 			nvarchar(max) not null,
- MoviesJSONNoArrayWrapper	nvarchar(max) null,
  InsertedDate			datetime not null default getdate());
 go
 
